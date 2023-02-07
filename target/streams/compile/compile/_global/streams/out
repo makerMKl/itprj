@@ -1,4 +1,20 @@
-[0m[[0m[31merror[0m] [0m[0mD:\ITSD-DT2022-Template\app\events\Initalize.java:33:1: 找不到符号[0m
-[0m[[0m[31merror[0m] [0m[0m  符号:   变量 unit[0m
-[0m[[0m[31merror[0m] [0m[0m  位置: 类 events.Initalize[0m
-[0m[[0m[31merror[0m] [0m[0munit[0m
+[0m[[0m[31merror[0m] [0m[0mD:\ITSD-DT2022-Template\app\logic\TheOneFunc_Logic.java:135:1: 已在类 logic.TheOneFunc_Logic中定义了方法 getRandomArrangement()[0m
+[0m[[0m[31merror[0m] [0m[0mpublic static int[] getRandomArrangement() {[0m
+[0m[[0m[31merror[0m] [0m[0m		        int[] iID = new int[20];[0m
+[0m[[0m[31merror[0m] [0m[0m		        for (int i = 0; i < 10; i++) [0m
+[0m[[0m[31merror[0m] [0m[0m		        {[0m
+[0m[[0m[31merror[0m] [0m[0m		        	iID[i*2] = i;[0m
+[0m[[0m[31merror[0m] [0m[0m		        	iID[i*2 + 1] = i;[0m
+[0m[[0m[31merror[0m] [0m[0m		        }[0m
+[0m[[0m[31merror[0m] [0m[0m		        [0m
+[0m[[0m[31merror[0m] [0m[0m		        Random rand = new Random();[0m
+[0m[[0m[31merror[0m] [0m[0m		        for (int i = 0; i < iID.length; i++) [0m
+[0m[[0m[31merror[0m] [0m[0m		        {[0m
+[0m[[0m[31merror[0m] [0m[0m		            int randomIndex = rand.nextInt(iID.length);[0m
+[0m[[0m[31merror[0m] [0m[0m		            int temp = iID[i];[0m
+[0m[[0m[31merror[0m] [0m[0m		            iID[i] = iID[randomIndex];[0m
+[0m[[0m[31merror[0m] [0m[0m		            iID[randomIndex] = temp;[0m
+[0m[[0m[31merror[0m] [0m[0m		        }[0m
+[0m[[0m[31merror[0m] [0m[0m		        [0m
+[0m[[0m[31merror[0m] [0m[0m		        return iID;[0m
+[0m[[0m[31merror[0m] [0m[0m		    }[0m

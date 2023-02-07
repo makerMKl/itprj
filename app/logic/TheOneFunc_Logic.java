@@ -8,7 +8,7 @@ import structures.basic.Tile;
 import structures.basic.Unit;
 import utils.BasicObjectBuilders;
 import utils.StaticConfFiles;
-
+import java.util.Random;
 //-- create by MK.L 23.2.6
 public class TheOneFunc_Logic {
 	
@@ -33,17 +33,18 @@ public class TheOneFunc_Logic {
 			}
 		}
 		// -- 血
-		Player humanPlayer = new Player(20, 0);
+		Player humanPlayer = new Player(20, 4);
 		BasicCommands.setPlayer1Health(out, humanPlayer);
-		Player aiPlayer = new Player(20, 0);
+		Player aiPlayer = new Player(20, 4);
 		BasicCommands.setPlayer2Health(out, aiPlayer);
 		
 		// -- Mana
 
 		humanPlayer.setMana(4);
 		BasicCommands.setPlayer1Mana(out, humanPlayer);
-		aiPlayer.setMana(4);
+		aiPlayer.setMana(7);
 		BasicCommands.setPlayer2Mana(out, aiPlayer);
+		
 		// -- 初始化主怪
 		Tile humanTile = BasicObjectBuilders.loadTile(1, 2);
 		Unit humanUnit = BasicObjectBuilders.loadUnit(StaticConfFiles.humanAvatar, 0, Unit.class);
@@ -63,13 +64,13 @@ public class TheOneFunc_Logic {
 		BasicCommands.setUnitHealth(out, aiUnit, 20);
 		BasicCommands.setUnitAttack(out, aiUnit, 2);
 		
-		/*	初始化手牌	 test*/
+		/*	初始化手牌	 test target*/
 		Card hailstone_golem = BasicObjectBuilders.loadCard(StaticConfFiles.c_hailstone_golem, 0, Card.class);
-		Card ironcliff_guardian = BasicObjectBuilders.loadCard(StaticConfFiles.c_ironcliff_guardian, 0, Card.class);
-		Card pureblade_enforcer = BasicObjectBuilders.loadCard(StaticConfFiles.c_pureblade_enforcer, 0, Card.class);
-		Card silverguard_knight = BasicObjectBuilders.loadCard(StaticConfFiles.c_silverguard_knight, 0, Card.class);
+		Card ironcliff_guardian = BasicObjectBuilders.loadCard(StaticConfFiles.c_ironcliff_guardian, 1, Card.class);
+		Card pureblade_enforcer = BasicObjectBuilders.loadCard(StaticConfFiles.c_pureblade_enforcer, 2, Card.class);
+		Card silverguard_knight = BasicObjectBuilders.loadCard(StaticConfFiles.c_silverguard_knight, 3, Card.class);
 		BasicCommands.drawCard(out, hailstone_golem, 1, 0);
-		BasicCommands.drawCard(out, ironcliff_guardian, 2, 0);
+		BasicCommands.drawCard(out, ironcliff_guardian, 2, 1);
 		BasicCommands.drawCard(out, pureblade_enforcer, 3, 0);
 		BasicCommands.drawCard(out, silverguard_knight, 4, 0);
 		
@@ -92,5 +93,66 @@ public class TheOneFunc_Logic {
 			}
 	}
 	
+
+	/*
+	 * name: getRandomArrangement
+	 * using: This function first creates an array of 10 numbers, each of which appears twice, 
+	and then uses the Random class to break up the elements of the array 
+	into a random order. The function returns the resulting array.
+	 * input: int iMs
+	 * coder: MK.L   2023.2.7 Xiuqi Liu 2773750
+	 * change:
+	 */	
+	    public static int[] getRandomArrangement() {
+	        int[] iID = new int[20];
+	        for (int i = 0; i < 10; i++) 
+	        {
+	        	iID[i*2] = i;
+	        	iID[i*2 + 1] = i;
+	        }
+	        
+	        Random rand = new Random();
+	        for (int i = 0; i < iID.length; i++) 
+	        {
+	            int randomIndex = rand.nextInt(iID.length);
+	            int temp = iID[i];
+	            iID[i] = iID[randomIndex];
+	            iID[randomIndex] = temp;
+	        }
+	        
+	        return iID;
+	    }
+
+		/*
+		 * name: getRandomArrangement
+		 * using: This function first creates an array of 10 numbers, each of which appears twice, 
+		and then uses the Random class to break up the elements of the array 
+		into a random order. The function returns the resulting array.
+		 * input: int iMs
+		 * coder: MK.L   2023.2.7 Xiuqi Liu 2773750
+		 * change:
+		 */	
+	    /*
+		    public static int[] getRandomArrangement() {
+		        int[] iID = new int[20];
+		        for (int i = 0; i < 10; i++) 
+		        {
+		        	iID[i*2] = i;
+		        	iID[i*2 + 1] = i;
+		        }
+		        
+		        Random rand = new Random();
+		        for (int i = 0; i < iID.length; i++) 
+		        {
+		            int randomIndex = rand.nextInt(iID.length);
+		            int temp = iID[i];
+		            iID[i] = iID[randomIndex];
+		            iID[randomIndex] = temp;
+		        }
+		        
+		        return iID;
+		    }
+		    */
+
 	
 }

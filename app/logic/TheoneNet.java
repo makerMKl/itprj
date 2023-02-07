@@ -25,10 +25,19 @@ public class TheoneNet {
 		else if(mod == 1)
 		{
 			// -- cardClicked
+			// -- highlight
+			
+			
+			
 		}
 		else if(mod == 2)
 		{
 			// -- endTurnClicked
+			TheOneConfig.iEnTurnClick = 0;
+			// -- logic method
+			
+			TheOneConfig.iEnTurnClick = 1;
+			
 		}
 		else if(mod == 3)
 		{
