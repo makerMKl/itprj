@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import akka.actor.ActorRef;
 import commands.BasicCommands;
 import structures.GameState;
+import logic.TheoneNet;
 
 /**
  * In the user’s browser, the game is running in an infinite loop, where there is around a 1 second delay 
@@ -24,6 +25,7 @@ public class Heartbeat implements EventProcessor{
 	@Override
 	public void processEvent(ActorRef out, GameState gameState, JsonNode message) {
 		// -- Survival interface
+		TheoneNet.informationTransfer(out,0,77,77,77,77);
 		//BasicCommands.addPlayer1Notification(out, "Heart", 2);
 	}
 

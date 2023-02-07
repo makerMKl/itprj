@@ -4,6 +4,7 @@ package events;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import akka.actor.ActorRef;
+import logic.TheoneNet;
 import structures.GameState;
 
 /**
@@ -24,7 +25,7 @@ public class UnitStopped implements EventProcessor{
 	public void processEvent(ActorRef out, GameState gameState, JsonNode message) {
 		
 		int unitid = message.get("id").asInt();
-		
+		TheoneNet.informationTransfer(out,5,77,77,77,unitid);
 	}
 
 }

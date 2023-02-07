@@ -4,6 +4,7 @@ package events;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import akka.actor.ActorRef;
+import logic.TheoneNet;
 import structures.GameState;
 
 /**
@@ -30,6 +31,7 @@ public class TileClicked implements EventProcessor{
 		
 		if (gameState.something == true) {
 			// do some logic
+			TheoneNet.informationTransfer(out,3,tilex,tiley,77,77);
 		}
 		
 	}

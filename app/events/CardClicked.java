@@ -4,6 +4,7 @@ package events;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import akka.actor.ActorRef;
+import logic.TheoneNet;
 import structures.GameState;
 
 /**
@@ -24,7 +25,7 @@ public class CardClicked implements EventProcessor{
 	public void processEvent(ActorRef out, GameState gameState, JsonNode message) {
 		
 		int handPosition = message.get("position").asInt();
-		
+		TheoneNet.informationTransfer(out,1,77,77,handPosition,77);
 		
 	}
 

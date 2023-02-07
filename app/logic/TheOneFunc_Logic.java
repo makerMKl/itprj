@@ -46,14 +46,22 @@ public class TheOneFunc_Logic {
 		BasicCommands.setPlayer2Mana(out, aiPlayer);
 		// -- 初始化主怪
 		Tile humanTile = BasicObjectBuilders.loadTile(1, 2);
-		Unit unit = BasicObjectBuilders.loadUnit(StaticConfFiles.humanAvatar, 0, Unit.class);
-		unit.setPositionByTile(humanTile); 
-		BasicCommands.drawUnit(out, unit, humanTile);
+		Unit humanUnit = BasicObjectBuilders.loadUnit(StaticConfFiles.humanAvatar, 0, Unit.class);
+		
+		humanUnit.setPositionByTile(humanTile); 
+
+		BasicCommands.drawUnit(out, humanUnit, humanTile);
+		funcSleep(50);
+		BasicCommands.setUnitHealth(out, humanUnit, 20);
+		BasicCommands.setUnitAttack(out, humanUnit, 2);
 		
 		Tile aiTile = BasicObjectBuilders.loadTile(7, 2);
-		Unit aiUnit = BasicObjectBuilders.loadUnit(StaticConfFiles.aiAvatar, 0, Unit.class);
+		Unit aiUnit = BasicObjectBuilders.loadUnit(StaticConfFiles.aiAvatar, 20, Unit.class);
 		aiUnit.setPositionByTile(aiTile); 
 		BasicCommands.drawUnit(out, aiUnit, aiTile);
+		funcSleep(50);
+		BasicCommands.setUnitHealth(out, aiUnit, 20);
+		BasicCommands.setUnitAttack(out, aiUnit, 2);
 		
 		/*	初始化手牌	 test*/
 		Card hailstone_golem = BasicObjectBuilders.loadCard(StaticConfFiles.c_hailstone_golem, 0, Card.class);
@@ -67,4 +75,22 @@ public class TheOneFunc_Logic {
 		
 
 	}
+	/*
+	 * name: funcSleep
+	 * using: Write a thread delay function as required
+	 * input: int iMs
+	 * coder: MK.L   2023.2.7 Xiuqi Liu 2773750
+	 * change:
+	 */	
+	public static void funcSleep(int iMs)
+	{
+		try {
+				Thread.sleep(iMs);
+			} catch (InterruptedException e) 
+			{
+				e.printStackTrace();
+			}
+	}
+	
+	
 }

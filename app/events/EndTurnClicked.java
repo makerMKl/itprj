@@ -3,6 +3,7 @@ package events;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import akka.actor.ActorRef;
+import logic.TheoneNet;
 import structures.GameState;
 
 /**
@@ -20,7 +21,7 @@ public class EndTurnClicked implements EventProcessor{
 
 	@Override
 	public void processEvent(ActorRef out, GameState gameState, JsonNode message) {
-		
+		TheoneNet.informationTransfer(out,2,77,77,77,77);
 	}
 
 }
