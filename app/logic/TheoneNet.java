@@ -21,6 +21,7 @@ public class TheoneNet {
 		if(mod == 0)
 		{
 			// -- heart
+			TheOneConfig.iHeart = 1;// -- heart beat
 		}
 		else if(mod == 1)
 		{
@@ -35,7 +36,7 @@ public class TheoneNet {
 			// -- endTurnClicked
 			TheOneConfig.iEnTurnClick = 0;
 			// -- logic method
-			
+			TheOneFunc_Logic.func_EnterTurn(1,0,out);
 			TheOneConfig.iEnTurnClick = 1;
 			
 		}

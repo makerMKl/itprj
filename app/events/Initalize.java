@@ -29,7 +29,7 @@ public class Initalize implements EventProcessor{
 		gameState.gameInitalised = true;
 		
 		gameState.something = true;
-		TheOneFunc_Logic.modelInit(out);
+		TheOneFunc_Logic.modelInit_Begin(out);
 		// User 1 makes a change
 		//CommandDemo.executeDemo(out); // this executes the command demo, comment out this when implementing your solution
 		//CheckMoveLogic.executeDemo(out);

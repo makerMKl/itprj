@@ -36,7 +36,7 @@ public class BasicCommands {
 	 * highlighted). This command can be used multiple times to change the visualisation mode for a tile.
 	 * @param out
 	 * @param tile
-	 * @param mode
+	 * @param mode 0 normal 1 highlight 2 red
 	 */
 	@SuppressWarnings({"deprecation"})
 	public static void drawTile(ActorRef out, Tile tile, int mode) {
