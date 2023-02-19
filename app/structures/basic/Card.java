@@ -13,22 +13,64 @@ package structures.basic;
 public class Card {
 	
 	int id;
-	
+	int iType;
+	int iNO;
+	int iHealth;
+
+	int iAttack;
 	String cardname;
 	int manacost;
 	
 	MiniCard miniCard;
 	BigCard bigCard;
-	
+	String cardConfig;// -- add MK.L 2.15
+
+	String unitConfig;// -- add MK.L 2.15
+	public int getiType() {
+		return iType;
+	}
+
+	public void setiType(int iType) {
+		this.iType = iType;
+	}
+	public String getCardConfig() {
+		return cardConfig;
+	}
+
+	public void setCardConfig(String cardConfig) {
+		this.cardConfig = cardConfig;
+	}
+
+	public String getUnitConfig() {
+		return unitConfig;
+	}
+
+	public void setUnitConfig(String unitConfig) {
+		this.unitConfig = unitConfig;
+	}
+	public int getiNO() {
+		return iNO;
+	}
+
+	public void setiNO(int iNO) {
+		this.iNO = iNO;
+	}
 	public Card() {};
 	
-	public Card(int id, String cardname, int manacost, MiniCard miniCard, BigCard bigCard) {
+	public Card(int id, String cardname, int manacost, MiniCard miniCard, BigCard bigCard
+			, String cardConfig,String unitConfig,int iType,int iNo,int iHealth,int iAttack) {
 		super();
 		this.id = id;
+		this.iNO = iNO;
+		this.iType = iType;
 		this.cardname = cardname;
 		this.manacost = manacost;
 		this.miniCard = miniCard;
 		this.bigCard = bigCard;
+		this.cardConfig = cardConfig;
+		this.unitConfig = unitConfig;
+		this.iHealth = iHealth;
+		this.iAttack = iAttack;
 	}
 	
 	public int getId() {
@@ -61,6 +103,18 @@ public class Card {
 	public void setBigCard(BigCard bigCard) {
 		this.bigCard = bigCard;
 	}
+	public int getiHealth() {
+		return iHealth;
+	}
 
+	public void setiHealth(int iHealth) {
+		this.iHealth = iHealth;
+	}
+	public int getiAttack() {
+		return iAttack;
+	}
+	public void setiAttack(int iAttack) {
+		this.iAttack = iAttack;
+	}
 	
 }

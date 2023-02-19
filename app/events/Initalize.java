@@ -9,6 +9,8 @@ import demo.CommandDemo;
 import logic.TheOneFunc_Logic;
 import structures.GameState;
 
+import java.io.IOException;
+
 /**
  * Indicates that both the core game loop in the browser is starting, meaning
  * that it is ready to recieve commands from the back-end.
@@ -29,7 +31,11 @@ public class Initalize implements EventProcessor{
 		gameState.gameInitalised = true;
 		
 		gameState.something = true;
-		TheOneFunc_Logic.modelInit_Begin(out);
+		try {
+			TheOneFunc_Logic.modelInit_Begin(out);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		// User 1 makes a change
 		//CommandDemo.executeDemo(out); // this executes the command demo, comment out this when implementing your solution
 		//CheckMoveLogic.executeDemo(out);
